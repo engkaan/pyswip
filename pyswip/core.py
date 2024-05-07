@@ -592,6 +592,7 @@ PL_VERSION_BUILT_IN	=7	# Built-in predicate signature
 # to avoid a conflict with Perl. For more details, see the following:
 # https://github.com/SWI-Prolog/swipl-devel/issues/900
 # https://github.com/SWI-Prolog/swipl-devel/issues/910
+"""
 try:
     if _lib.PL_version_info != None:
         PL_version = _lib.PL_version_info # swi-prolog > 8.5.2
@@ -605,7 +606,13 @@ try:
         raise Exception("swi-prolog >= 8.2.0 is required")
 except AttributeError:
     raise Exception("swi-prolog version number could not be determined")
+"""
 
+# We have replaced the try-except block above
+# with the following two variables as that block
+# could not detect SWI-Prolog version in our case.
+PL_VERSION = 80402
+PL_Version = 80402
 
 # PySwip constants
 PYSWIP_MAXSTR = 1024
